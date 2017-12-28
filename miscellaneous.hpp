@@ -34,7 +34,9 @@ namespace Deng
 			{
 				Abelian_Additive_Group_of_Z<int_type, order> result;
 				result.value = left.value + right.value;
-				result.value -= result.value > order ? order : 0;
+
+				if (result.value >= order)
+					result.value -= order;
 
 				return result;
 			};
